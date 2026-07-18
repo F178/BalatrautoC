@@ -1,10 +1,10 @@
 #pragma once
-#include <vector>
+
 #include <string>
 #include <utility>
+#include <vector>
 
-// --- JOKERS ---
-const std::vector<std::string> JOKER_NAMES = {
+inline const std::vector<std::string> JOKER_NAMES = {
     "Joker", "Greedy Joker", "Lusty Joker", "Wrathful Joker", "Gluttonous Joker", "Jolly Joker", "Zany Joker", "Mad Joker", "Crazy Joker", "Droll Joker",
     "Sly Joker", "Willy Joker", "Clever Joker", "Devious Joker", "Crafty Joker", "Half Joker", "Joker Stencil", "Four Fingers", "Mime", "Credit Card",
     "Ceremonial Dagger", "Banner", "Mystic Summit", "Marble Joker", "Loyalty Card", "8 Ball", "Misprint", "Dusk", "Raised Fist", "Chaos the Clown",
@@ -22,19 +22,16 @@ const std::vector<std::string> JOKER_NAMES = {
     "Driver's License", "Cartomancer", "Astronomer", "Burnt Joker", "Bootstraps", "Caino", "Triboulet", "Yorick", "Chicot", "Perkeo"
 };
 
-// --- DECKS ---
-const std::vector<std::string> DECK_NAMES = {
+inline const std::vector<std::string> DECK_NAMES = {
     "Red Deck", "Blue Deck", "Yellow Deck", "Green Deck", "Black Deck", "Magic Deck", "Nebula Deck", "Ghost Deck", "Abandoned Deck", "Checkered Deck",
     "Zodiac Deck", "Paint Deck", "Anaglyph Deck", "Erratic Deck", "Plasma Deck"
 };
 
-// --- STAKES ---
-const std::vector<std::string> STAKE_NAMES = {
+inline const std::vector<std::string> STAKE_NAMES = {
     "White Stake", "Red Stake", "Green Stake", "Black Stake", "Blue Stake", "Purple Stake", "Orange Stake", "Gold Stake"
 };
 
-// --- CATEGORY PAIRS ---
-const std::vector<std::pair<std::string, const std::vector<std::string>&>> CATEGORIES = {
+inline const std::vector<std::pair<std::string, const std::vector<std::string>&>> CATEGORIES = {
     {"jokers", JOKER_NAMES},
-    {"decks", DECK_NAMES},
+    {"decks", DECK_NAMES}
 };
