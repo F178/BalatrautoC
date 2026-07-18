@@ -1,0 +1,33 @@
+name: Windows Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B out/build/ci -G "Visual Studio 17 2022" -A x64
+
+      - name: Build
+        run: cmake --build out/build/ci --config Debug --parallel
+
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: Balatrauto-windows-debug
+          path: |
+            out/build/ci/Debug/Balatrauto.exe
+            out/build/ci/Debug/SDL3.dll
+            out/build/ci/Debug/Icons
+            out/build/ci/Debug/assets
+          if-no-files-found: error
