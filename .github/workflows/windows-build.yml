@@ -10,25 +10,27 @@ on:
 jobs:
   build:
     runs-on: windows-2022
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
       - name: Configure
-        run: cmake -S . -B out/build/ci -G "Visual Studio 17 2022" -A x64
+        run: cmake -S . -B out/build/ci -G "Visual Studio 17 2022" -A x64 -DBUILD_TESTING=ON
 
       - name: Build
-        run: cmake --build out/build/ci --config Debug --parallel
+        run: cmake --build out/build/ci --config Release --parallel
 
-      - name: Upload executable
+      - name: Test
+        run: ctest --test-dir out/build/ci -C Release --output-on-failure
+
+      - name: Package
+        run: cpack --config out/build/ci/CPackConfig.cmake -C Release -G ZIP -B out/package
+
+      - name: Upload package
         uses: actions/upload-artifact@v4
         with:
-          name: Balatrauto-windows-debug
-          path: |
-            out/build/ci/Debug/Balatrauto.exe
-            out/build/ci/Debug/SDL3.dll
-            out/build/ci/Debug/Icons
-            out/build/ci/Debug/assets
+          name: Balatrauto-windows-x64
+          path: out/package/Balatrauto-*-windows-x64.zip
           if-no-files-found: error

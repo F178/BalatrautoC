@@ -1,9 +1,9 @@
 #pragma once
-
+#include <vector>
 #include <string>
 #include <utility>
-#include <vector>
 
+// --- JOKERS ---
 inline const std::vector<std::string> JOKER_NAMES = {
     "Joker", "Greedy Joker", "Lusty Joker", "Wrathful Joker", "Gluttonous Joker", "Jolly Joker", "Zany Joker", "Mad Joker", "Crazy Joker", "Droll Joker",
     "Sly Joker", "Willy Joker", "Clever Joker", "Devious Joker", "Crafty Joker", "Half Joker", "Joker Stencil", "Four Fingers", "Mime", "Credit Card",
@@ -22,16 +22,34 @@ inline const std::vector<std::string> JOKER_NAMES = {
     "Driver's License", "Cartomancer", "Astronomer", "Burnt Joker", "Bootstraps", "Caino", "Triboulet", "Yorick", "Chicot", "Perkeo"
 };
 
+// --- DECKS ---
 inline const std::vector<std::string> DECK_NAMES = {
     "Red Deck", "Blue Deck", "Yellow Deck", "Green Deck", "Black Deck", "Magic Deck", "Nebula Deck", "Ghost Deck", "Abandoned Deck", "Checkered Deck",
     "Zodiac Deck", "Paint Deck", "Anaglyph Deck", "Erratic Deck", "Plasma Deck"
 };
 
+// --- STAKES ---
 inline const std::vector<std::string> STAKE_NAMES = {
     "White Stake", "Red Stake", "Green Stake", "Black Stake", "Blue Stake", "Purple Stake", "Orange Stake", "Gold Stake"
 };
 
+// --- CATEGORY PAIRS ---
+inline constexpr const char* NO_STICKER = "No Sticker";
+
+inline const std::vector<std::pair<std::string, std::string>> STAKE_STICKERS = {
+    {"White Stake", "White Sticker"},
+    {"Red Stake", "Red Sticker"},
+    {"Green Stake", "Green Sticker"},
+    {"Black Stake", "Black Sticker"},
+    {"Blue Stake", "Blue Sticker"},
+    {"Purple Stake", "Purple Sticker"},
+    {"Orange Stake", "Orange Sticker"},
+    {"Gold Stake", "Gold Sticker"},
+    {NO_STICKER, NO_STICKER}
+};
+
 inline const std::vector<std::pair<std::string, const std::vector<std::string>&>> CATEGORIES = {
     {"jokers", JOKER_NAMES},
-    {"decks", DECK_NAMES}
+    {"decks", DECK_NAMES},
+    {"stakes", STAKE_NAMES},
 };
